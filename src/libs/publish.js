@@ -105,6 +105,9 @@ const publish = {
 		if (filename) {
 			return { 'filename': out.slug }
 		}
+		else{
+			console.log('-------------> THIS DIDNT WORK!')
+		}
 	},
 	updateContent: async (url, body) => {
 		const filename = utils.urlToFilename(url)
