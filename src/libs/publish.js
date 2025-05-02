@@ -80,7 +80,6 @@ const publish = {
 	handleUpdate: handleUpdate,
 
 	addContent: async (data, isJSON, clientId) => {
-		console.log('-----------------> CLIENT ID: ', clientId)
 		const parsed = isJSON ? parse.fromJSON(data) : parse.fromForm(data)
 		console.log('└─>', parsed)
 		if (parsed && parsed['like-of']) {
@@ -93,7 +92,6 @@ const publish = {
 			return { 'error': 'nothing to add' }
 		}
 		const out = content.format(parsed, clientId)
-		console.log('-----------------> OUT DATA: ', out)
 		if (!out || !out.filename || !out.formatted) {
 			return { 'error': 'could not parse data' }
 		}
@@ -104,9 +102,6 @@ const publish = {
 		const filename = await GitHub.createFile(out.filename, out.formatted)
 		if (filename) {
 			return { 'filename': out.slug }
-		}
-		else{
-			console.log('-------------> THIS DIDNT WORK!')
 		}
 	},
 	updateContent: async (url, body) => {
