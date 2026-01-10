@@ -18,7 +18,7 @@ const getHandler = async query => {
 		const opts = {
 			'limit': parseInt(query.limit) || 10,
 			'offset': parseInt(query.offset) || 0,
-			'url' : 'static/' + process.env.MEDIA_DIR || 'static/uploads'
+			'url' : ('static/' + process.env.MEDIA_DIR) || 'static/uploads'
 		}
 		const exists = await GitHub.getDirectory(opts.url)
 		if (!exists) {
