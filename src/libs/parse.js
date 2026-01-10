@@ -47,7 +47,7 @@ export default {
 					if (['category', 'syndicate-to', 'photo'].includes(propKey)) {
 						if(['photo'].includes(propKey))
 						{
-							let original = propValue.ToString()
+							let original = propValue.toString()
 							let split = original.replace('static/', '')
 							parsed[propKey] = split
 						}
