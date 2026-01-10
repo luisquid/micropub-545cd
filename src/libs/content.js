@@ -87,7 +87,7 @@ const content = {
 
 	mediaFilename: file => {
 		if (file && file.filename) {
-			let dir = (process.env.MEDIA_DIR || 'uploads').replace(/\/$/, '')
+			let dir = (('static/' + process.env.MEDIA_DIR) || 'uploads').replace(/\/$/, '')
 			return `${dir}/${Math.round(new Date() / 1000)}_${file.filename}`
 		}
 	}
