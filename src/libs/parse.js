@@ -45,7 +45,15 @@ export default {
 						propKey = propKey.slice(3)
 					}
 					if (['category', 'syndicate-to', 'photo'].includes(propKey)) {
-						parsed[propKey] = itemsToArray(propValue)
+						if(['photo'].includes(propKey))
+						{
+							splitValue = propValue.replace('static/', '')
+							parsed[propKey] = splitValue
+						}
+						else
+						{
+							parsed[propKey] = itemsToArray(propValue)
+						}
 					} else {
 						parsed[propKey] = getPropertyValue(propValue)
 					}
